@@ -1,0 +1,15 @@
+# Interface
+PySide6>=6.6
+# Moteur PDF
+pymupdf>=1.24.10
+pikepdf>=8.0
+# Conversions
+pdf2docx>=0.5.8
+openpyxl>=3.1
+python-pptx>=0.6.23
+pymupdf4llm>=0.0.17
+markdown>=3.5
+Pillow>=10.0
+# Sécurité & extras
+pyhanko>=0.25
+qrcode>=7.4

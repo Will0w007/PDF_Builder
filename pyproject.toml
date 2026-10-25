@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-builder"
+version = "1.0.0"
+description = "Suite PDF de bureau complète : fusion, découpe, édition, OCR, conversion, signature, automatisation."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "PySide6>=6.6",
+    "pymupdf>=1.24.10",
+    "pikepdf>=8.0",
+    "pdf2docx>=0.5.8",
+    "openpyxl>=3.1",
+    "python-pptx>=0.6.23",
+    "pymupdf4llm>=0.0.17",
+    "markdown>=3.5",
+    "Pillow>=10.0",
+    "pyhanko>=0.25",
+    "qrcode>=7.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "python-docx>=1.1", "ruff>=0.5", "pyinstaller>=6.6"]
+
+[project.gui-scripts]
+pdf-builder = "pdf_builder.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["pdf_builder*"]
+
+[tool.setuptools.package-data]
+pdf_builder = ["assets/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::FutureWarning", "ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 200
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E9", "F", "B", "I"]
+# B023 : les fermetures définies dans les boucles sont appelées immédiatement (stamp()).
+ignore = ["B008", "B023", "B905"]

@@ -1,0 +1,5 @@
+-r requirements.txt
+pytest>=8
+python-docx>=1.1
+ruff>=0.5
+pyinstaller>=6.6
